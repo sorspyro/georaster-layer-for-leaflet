@@ -454,7 +454,7 @@ const GeoRasterLayer: (new (options: GeoRasterLayerOptions) => any) & typeof L.C
       if (debugLevel >= 3)
         console.log(
           "[georaster-layer-for-leaflet] extent of inner tile before snapping " +
-            extentOfInnerTileInMapCRS.reproj(inSimpleCRS ? "simple" : 4326).bbox.toString()
+          extentOfInnerTileInMapCRS.reproj(inSimpleCRS ? "simple" : 4326).bbox.toString()
         );
 
       // Reprojecting the bounding box back to the map CRS would expand it
@@ -497,7 +497,7 @@ const GeoRasterLayer: (new (options: GeoRasterLayerOptions) => any) & typeof L.C
       if (debugLevel >= 3)
         console.log(
           "[georaster-layer-for-leaflet] extent of inner tile after snapping " +
-            extentOfInnerTileInMapCRS.reproj(inSimpleCRS ? "simple" : 4326).bbox.toString()
+          extentOfInnerTileInMapCRS.reproj(inSimpleCRS ? "simple" : 4326).bbox.toString()
         );
 
       // Note that the snapped "inner" tile may extend beyond the original tile,
@@ -624,7 +624,8 @@ const GeoRasterLayer: (new (options: GeoRasterLayerOptions) => any) & typeof L.C
           }
 
           await this.checkIfYCbCr;
-
+          console.log("number of cols: " + numberOfSamplesDown)
+          console.log("number of rows: " + numberOfSamplesAcross)
           for (let h = 0; h < numberOfSamplesDown; h++) {
             const yCenterInMapPixels = yTopOfInnerTile + (h + 0.5) * heightOfSampleInScreenPixels;
             const latWestPoint = L.point(xLeftOfInnerTile, yCenterInMapPixels);
